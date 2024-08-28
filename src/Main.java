@@ -2,6 +2,7 @@ import models.Autor;
 import models.Factura;
 import models.Libro;
 
+import java.time.chrono.ChronoLocalDate;
 import java.util.Scanner;
 
 public class Main {
@@ -60,9 +61,7 @@ public class Main {
     }
 
     private static void ej2(){
-        Factura f = new Factura()
-                .total(500)
-                .date("20041206");
+        Factura f = new Factura();
 
         f.toString();
     }

@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
+import static utils.Date.getLocalDate;
+
 public class Factura {
     private String id;
     private double total;
-    private LocalDate date;
-    private LocalDate time;
+    private String date;
+    private String time;
 
-    private static final DateTimeFormatter FORMATTER_DATE = DateTimeFormatter.ofPattern("yyyy-mm-dd");
-    private static final DateTimeFormatter FORMATTER_TIME = DateTimeFormatter.ofPattern("hh:mm:ss");
 
     public Factura(){
         this.id = UUID.randomUUID().toString();
@@ -31,24 +31,24 @@ public class Factura {
     }
 
     public Factura date(String date){
-        this.date = LocalDate.parse(date,FORMATTER_DATE);
+        this.date = date;
         return this;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
 
-    public LocalDate getTime() {
+    public String  getTime() {
         return time;
     }
 
-    public Factura(LocalDate time) {
+    public Factura(String time) {
         this.time = time;
     }
 
-    public void setTime(LocalDate time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
@@ -57,8 +57,8 @@ public class Factura {
         return "Factura{" +
                 "id='" + id + '\'' +
                 ", total=" + total +
-                ", date=" + date +
-                ", time=" + time +
+                ", date='" + date + '\'' +
+                ", time='" + time + '\'' +
                 '}';
     }
 }
